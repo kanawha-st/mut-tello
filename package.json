@@ -1,0 +1,28 @@
+{
+  "name": "mat-tello",
+  "version": "1.0.0",
+  "description": "tello server",
+  "main": "index.js",
+  "author": "tomoiida@plustic-works.com",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack --watch & node server.js",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel": "^6.23.0",
+    "babel-loader": "^9.2.1",
+    "blockly": "^11.1.1",
+    "dgram": "^1.0.1",
+    "express": "^4.21.1",
+    "file-loader": "^6.2.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2",
+    "html-webpack-plugin": "^5.6.3",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  }
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Tello Blockly Controller</title>
+    <!-- スタイルシート -->
+    <style>
+        #blocklyDiv {
+            height: 480px;
+            width: 600px;
+            float: left;
+        }
+
+        #controls {
+            margin-left: 620px;
+        }
+    </style>
+    <script src="bundle.js"></script>
+</head>
+
+<body>
+    <h1>Tello Blockly Controller</h1>
+    <div id="blocklyDiv"></div>
+    <div id="controls">
+        <div>
+            <labal for="SN">機体番号</labal>
+            <input type="number" id="SN" placeholder="シリアル番号" value="1" />
+        </div>
+        <button onclick="runCode()">コードを実行</button>
+        <pre id="generatedCode"></pre>
+    </div>
+    <xml id="toolbox" style="display: none">
+        <!-- カスタムブロックをツールボックスに追加 -->
+        <category name="Telloコマンド" colour="160">
+            <block type="takeoff"></block>
+            <block type="land"></block>
+            <block type="up">
+                <value name="DISTANCE">
+                    <shadow type="math_number">
+                        <field name="NUM">20</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="down">
+                <value name="DISTANCE">
+                    <shadow type="math_number">
+                        <field name="NUM">20</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="left">
+                <value name="DISTANCE">
+                    <shadow type="math_number">
+                        <field name="NUM">20</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="right">
+                <value name="DISTANCE">
+                    <shadow type="math_number">
+                        <field name="NUM">20</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="forward">
+                <value name="DISTANCE">
+                    <shadow type="math_number">
+                        <field name="NUM">20</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="back">
+                <value name="DISTANCE">
+                    <shadow type="math_number">
+                        <field name="NUM">20</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="cw">
+                <value name="DEGREE">
+                    <shadow type="math_number">
+                        <field name="NUM">90</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="ccw">
+                <value name="DEGREE">
+                    <shadow type="math_number">
+                        <field name="NUM">90</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <!-- 標準ブロックも追加 -->
+        <category name="制御" colour="%{BKY_LOOPS_HUE}">
+            <block type="controls_repeat_ext">
+                <value name="TIMES">
+                    <shadow type="math_number">
+                        <field name="NUM">10</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="数学" colour="%{BKY_MATH_HUE}">
+            <block type="math_number">
+                <field name="NUM">0</field>
+            </block>
+        </category>
+    </xml>
+    <!-- モジュールとしてスクリプトを読み込む
+    <script type="module" src="main.js"></script>
+    -->
+</body>
+
+</html>
